@@ -157,8 +157,8 @@ Where `<adapter>` is the name of your adapter without the `hubot-` prefix.
 
 ## Deployment
 
-    % heroku create --stack cedar
     % git push heroku master
+    % heroku ps:scale web=1
 
 If your Heroku account has been verified you can run the following to enable
 and add the Redis to Go addon to your app.
