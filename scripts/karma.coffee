@@ -116,7 +116,7 @@ module.exports = (robot) ->
         continue
 
       if !karma.exists subject
-        output.push "Karma does not exist for '#{subject}'. Use `#{robot.name} karma create #{subject}` to create it."
+        output.push "Karma does not exist for '#{subject}'. Use `#{robot.name} karma create #{subject}` to make it right."
         continue
 
       if increasing
@@ -161,4 +161,4 @@ module.exports = (robot) ->
       if karma.exists(match)
         msg.send "\"#{match}\" has #{karma.get(match)} karma."
       else
-        msg.send "Karma does not exist for '#{match}'. Use `#{robot.name} karma create #{match}` to create it."
+        msg.send "Karma does not exist for '#{match}'. Use `#{robot.name} karma create #{match}` to make it right."
