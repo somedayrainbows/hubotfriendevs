@@ -15,9 +15,6 @@
 #   hubot karma <thing> - check thing's karma (if <thing> is omitted, show the top 5)
 #   hubot karma best - show the top 5
 #   hubot karma worst - show the bottom 5
-#
-# Author:
-#   stuartf
 
 class Karma
 
@@ -25,11 +22,11 @@ class Karma
     @cache = {}
 
     @increment_responses = [
-      "+1!", "gained a level!", "is on the rise!", "leveled up!"
+      "+1! Alright!", "got some karma! Woohoo!", "is beloved.", "leveled up! Yassss!"
     ]
 
     @decrement_responses = [
-      "took a hit! Ouch.", "took a dive.", "lost a life.", "lost a level."
+      "took a hit! Ouch.", "has been downgraded.", "lost a level."
     ]
 
     @robot.brain.on 'loaded', =>
@@ -70,9 +67,9 @@ class Karma
 
   selfDeniedResponses: (name) ->
     @self_denied_responses = [
-      "Hey everyone! #{name} is a narcissist!",
-      "I might just allow that next time, but no.",
-      "I can't do that #{name}."
+      "You can't self-award karma. Who do you think you are, Abraham?!",
+      "Um, no.",
+      "Nope. Try getting someone else to give you some karma, #{name}."
     ]
 
   exists: (thing) ->
@@ -139,12 +136,12 @@ module.exports = (robot) ->
       return
 
     karma.create subject
-    msg.send "#{subject} is now ready for karmic retribution. Use `#{subject}++` and `#{subject}--` to give and take karma."
+    msg.send "#{subject} is now ready to receive karma! Use `#{subject}++` and `#{subject}--` to give and take karma."
 
   robot.respond /karma empty ?(@[^@+:]+|[^-+:\s]*)$/i, (msg) ->
     subject = karma.cleanSubject(msg.match[1].toLowerCase())
     karma.kill subject
-    msg.send "#{subject} has had its karma scattered to the winds."
+    msg.send "#{subject}'s karma has been scattered to the winds."
 
   robot.respond /karma( best)?$/i, (msg) ->
     verbiage = ["The Best"]
