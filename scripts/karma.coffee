@@ -22,11 +22,11 @@ class Karma
     @cache = {}
 
     @increment_responses = [
-      "+1! Alright!", "got some karma! Woohoo!", "is beloved.", "leveled up! Yassss!"
+      "+1!", "got some karma! Woohoo!", "is so loved. You go, girl.", "leveled up! Yassss!"
     ]
 
     @decrement_responses = [
-      "took a hit! Ouch.", "has been downgraded.", "lost a level."
+      "lost some karma! So sad.", "has been downgraded.", "lost a level. Ouch!"
     ]
 
     @robot.brain.on 'loaded', =>
