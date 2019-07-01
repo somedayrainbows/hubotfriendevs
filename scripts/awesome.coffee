@@ -1,5 +1,5 @@
 # Description:
-#   Get a NOICE gif
+#   Get a gif when someone says awesome
 #
 # Dependencies:
 #   None
@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot noice
+#   hubot awesome
 #
 # Author:
 #  Erin
@@ -20,7 +20,7 @@ module.exports = (robot) ->
       Math.floor((1 + Math.random()) * 0x10000).toString(16).substring 1
     s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4()
 
-  img = 'http://media.giphy.com/media/jADK27n0qKxW0/giphy.gif?' + guid()
+  img = 'https://media.giphy.com/media/3ohzdIuqJoo8QdKlnW/source.gif?' + guid()
 
-  robot.hear /noo?ice/i, (msg)->
+  robot.hear /awesome/i, (msg)->
     msg.send img
