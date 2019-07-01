@@ -15,6 +15,10 @@
 #   hubot karma <thing> - check thing's karma (if <thing> is omitted, show the top 5)
 #   hubot karma best - show the top 5
 #   hubot karma worst - show the bottom 5
+#
+# Author (original):
+#   D. Stuart Freeman (@stuartf) https://github.com/stuartf
+#
 
 class Karma
 
