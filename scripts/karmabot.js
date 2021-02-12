@@ -127,11 +127,13 @@ module.exports = (robot) => {
   const allow_self = process.env.KARMA_ALLOW_SELF || false;
 
   robot.hear(/(@[^@+:]+|[^-+:\s]*)[:\s]*(\+\+|--)/g, (msg) => {
+    msg.send(`validating msg arg: ${msg}`)
     const output = [];
     for (let subject of Array.from(msg.match)) {
       const user = msg.message.user.name.toLowerCase();
-      output.push(`testing: ${msg.message.user}`);
       subject = subject.trim();
+      msg.send(`testing in .hear: user: ${user}`);
+      msg.send(`testing in .hear: subject: ${subject}`);
       const increasing = subject.slice(-2) === "++";
       subject = karma.cleanSubject(subject.slice(0, +-3 + 1 || undefined).toLowerCase());
       if (subject === '') {
@@ -163,7 +165,7 @@ module.exports = (robot) => {
 
   robot.respond(/create ?(@[^@+:]+|[^-+:\s]*)$/i, (msg) => {
     const subject = karma.cleanSubject(msg.match[1].toLowerCase());
-    msg.send(`testing in /create: ${msg}`);
+    msg.send(`testing in /create: msg.match: ${msg.match}`);
 
     if (karma.exists(subject)) {
       msg.send(`Karma already exists for ${subject}`);
