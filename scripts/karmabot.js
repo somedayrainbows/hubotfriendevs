@@ -42,6 +42,7 @@ class Karma {
   }
 
   create(slackname) {
+
     if (this.cache[slackname] == null) { this.cache[slackname] = 0; }
     return this.robot.brain.data.karma = this.cache;
   }
@@ -129,6 +130,7 @@ module.exports = (robot) => {
     const output = [];
     for (let subject of Array.from(msg.match)) {
       const user = msg.message.user.name.toLowerCase();
+      output.push(`testing: ${msg.message.user}`);
       subject = subject.trim();
       const increasing = subject.slice(-2) === "++";
       subject = karma.cleanSubject(subject.slice(0, +-3 + 1 || undefined).toLowerCase());
@@ -159,8 +161,9 @@ module.exports = (robot) => {
     }
   });
 
-  robot.respond(/karma create ?(@[^@+:]+|[^-+:\s]*)$/i, (msg) => {
+  robot.respond(/create ?(@[^@+:]+|[^-+:\s]*)$/i, (msg) => {
     const subject = karma.cleanSubject(msg.match[1].toLowerCase());
+    msg.send(`testing in /create: ${msg}`);
 
     if (karma.exists(subject)) {
       msg.send(`Karma already exists for ${subject}`);
@@ -171,13 +174,13 @@ module.exports = (robot) => {
     return msg.send(`${subject} is now ready to receive karma! Use \`${subject}++\` and \`${subject}--\` to give and take karma.`);
   });
 
-  robot.respond(/karma empty ?(@[^@+:]+|[^-+:\s]*)$/i, (msg) => {
+  robot.respond(/empty ?(@[^@+:]+|[^-+:\s]*)$/i, (msg) => {
     const subject = karma.cleanSubject(msg.match[1].toLowerCase());
     karma.delete(subject);
     return msg.send(`${subject}'s karma has been scattered to the winds.`);
   });
 
-  robot.respond(/karma( best)?$/i, (msg) => {
+  robot.respond(/( best)?$/i, (msg) => {
     const verbiage = ["The Best"];
     const iterable = karma.top();
     for (let rank = 0; rank < iterable.length; rank++) {
@@ -187,7 +190,7 @@ module.exports = (robot) => {
     return msg.send(verbiage.join("\n"));
   });
 
-  robot.respond(/karma least$/i, (msg) => {
+  robot.respond(/least$/i, (msg) => {
     const verbiage = ["The Least"];
     const iterable = karma.bottom();
     for (let rank = 0; rank < iterable.length; rank++) {
@@ -197,7 +200,7 @@ module.exports = (robot) => {
     return msg.send(verbiage.join("\n"));
   });
 
-  return robot.respond(/karma (@[^@+:]+|[^-+:\s]*)$/i, (msg) => {
+  return robot.respond(/ (@[^@+:]+|[^-+:\s]*)$/i, (msg) => {
     const match = karma.cleanSubject(msg.match[1].toLowerCase());
     if ((match !== "best") && (match !== "least") && (match.substr(0, 6) !== "create") && (match.substr(0, 5) !== "empty")) {
       if (karma.exists(match)) {
