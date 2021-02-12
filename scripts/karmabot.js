@@ -118,7 +118,7 @@ class Karma {
 
   cleanSubject(subject) {
     // remove any prefix characters (e.g. @, ", ', etc.)
-    return subject.trim().replace(/^[^a-z]+/, '').replace(/:$/, '');
+    return subject.trim().replace(/^[^a-z@]+/, '').replace(/:$/, '');
   }
 }
 
@@ -145,7 +145,7 @@ module.exports = (robot) => {
         continue;
       }
 
-      if (!karma.exists(subject)) {
+      if (!karma.exists(subject) && subject !== 'ping') {
         output.push(`Karma does not exist for '${subject}'. Use \`${robot.name} karma create ${subject}\` to make it right.`);
         continue;
       }
