@@ -13,13 +13,13 @@
 # Author:
 #  Erin
 
-module.exports = (robot) ->
-  guid = ->
-    s4 = ->
-      Math.floor((1 + Math.random()) * 0x10000).toString(16).substring 1
-    s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4()
+module.exports = function(robot) {
+  const guid = function() {
+    const s4 = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  };
 
-  img = 'https://media.giphy.com/media/QLvRBqfLXCphu/giphy.gif?' + guid()
+  const img = 'https://media.giphy.com/media/QLvRBqfLXCphu/giphy.gif?' + guid();
 
-  robot.hear /rock/i, (msg)->
-    msg.send img
+  return robot.hear(/rock/i, msg => msg.send(img));
+};

@@ -3,23 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "author": "ebassity@gmail.com",
-  "description": "karma for all!",
+  "description": "A delightful slackbot that awards and keeps track of karma points",
   "dependencies": {
     "hubot": "^3.3.2",
     "hubot-diagnostics": "^1.0.0",
-    "hubot-google-images": "^0.2.7",
-    "hubot-google-translate": "^0.2.1",
     "hubot-help": "^1.0.1",
-    "hubot-heroku-keepalive": "^1.0.3",
     "hubot-karmabot": "^1.2.0",
-    "hubot-maps": "0.0.3",
-    "hubot-pugme": "^0.1.1",
     "hubot-redis-brain": "^1.0.0",
     "hubot-rules": "^1.0.0",
     "hubot-scripts": "^2.17.2",
-    "hubot-slack": "^4.7.1"
+    "hubot-slack": "^4.9.0"
   },
   "engines": {
-    "node": "11.11.x"
+    "node": "12.x"
   }
 }
