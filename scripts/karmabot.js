@@ -8,13 +8,13 @@
 //   KARMA_ALLOW_SELF
 //
 // Commands:
-//   karmabot create <slackname> - create karma keeping for a slack user
-//   karmabot empty <slackname> - empty a slackname's karma
-//   <@slackname>++ - give slackname some karma
-//   <@slackname>-- - take away some of slackname's karma
-//   karmabot <slackname> - check slackname's karma (if <slackname> is omitted, show the top 5)
-//   karmabot best - show the top 5
-//   karmabot least - show the bottom 5
+//   karmabot create @Slackname - create karma keeping for a slack user
+//   karmabot empty @Slackname - empty someone's total karma
+//   @Slackname++ to give someone some karma
+//   @Slackname-- to take away someone's karma
+//   karmabot @Slackname - check someone's karma (if @Slackname is omitted, show the top 5)
+//   karmabot best - show the five with the most karma
+//   karmabot least - show the five with the least karma
 
 class Karma {
 
