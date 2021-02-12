@@ -1,14 +1,6 @@
 // Description:
 //   Get a gif of The Rock
-// #
-// Dependencies:
-//   None
-// #
-// Configuration:
-//   None
-// #
-// Commands:
-//   hubot rock
+// 
 // #
 // Author:
 //   erin

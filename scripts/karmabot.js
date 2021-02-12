@@ -201,6 +201,7 @@ module.exports = (robot) => {
         return msg.send(`\"${match}\" has ${karma.get(match)} karma.`);
       } else {
         if (match === 'ping') {
+          return;
         }
         return msg.send(`Karma does not exist for '${match}'. Use \`${robot.name} create ${match}\` to make it right.`);
       }
