@@ -1,17 +1,17 @@
-# Description:
-#   Get a gif of The Rock
-#
-# Dependencies:
-#   None
-#
-# Configuration:
-#   None
-#
-# Commands:
-#   hubot rock
-#
-# Author:
-#  Erin
+// Description:
+//   Get a gif of The Rock
+// #
+// Dependencies:
+//   None
+// #
+// Configuration:
+//   None
+// #
+// Commands:
+//   hubot rock
+// #
+// Author:
+//   erin
 
 module.exports = function(robot) {
   const guid = function() {
