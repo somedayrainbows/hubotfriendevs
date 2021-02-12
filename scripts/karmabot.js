@@ -169,6 +169,7 @@ module.exports = (robot) => {
   });
 
   robot.respond(/empty ?(@[^@+:]+|[^-+:\s]*)$/i, (msg) => {
+    karma.delete(msg.match[1].toLowerCase())
     const subject = karma.cleanSubject(msg.match[1].toLowerCase());
     karma.delete(subject);
     return msg.send(`${subject}'s karma has been scattered to the winds.`);
